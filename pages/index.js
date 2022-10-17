@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./index.module.css";
 
 export default function Home() {
-  const [animalInput, setAnimalInput] = useState("");
+  const [queryInput, setQueryInput] = useState("");
   const [result, setResult] = useState();
 
   async function onSubmit(event) {
@@ -12,31 +12,32 @@ export default function Home() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-      }
+      },
+      body: JSON.stringify({ query: queryInput }),
     });
-    console.log("ji");
-    console.log(response);
+    const data = await response.json();
+    setResult(data.result);
   }
 
   return (
     <div>
       <Head>
-        <title>OpenAI Quickstart</title>
-        <link rel="icon" href="/dog.png" />
+        <title>Text to SQL translator</title>
+        <link rel="icon" href="/img.png" />
       </Head>
 
       <main className={styles.main}>
-        <img src="/dog.png" className={styles.icon} />
-        <h3>Name my pet</h3>
+        <img src="/img.png" className={styles.icon} />
+        <h3>Text to SQL translator</h3>
         <form onSubmit={onSubmit}>
           <input
             type="text"
             name="animal"
-            placeholder="Enter an animal"
-            value={animalInput}
-            onChange={(e) => setAnimalInput(e.target.value)}
+            placeholder="Enter table schema and question"
+            value={queryInput}
+            onChange={(e) => setQueryInput(e.target.value)}
           />
-          <input type="submit" value="Generate names" />
+          <input type="submit" value="Generate SQL Query" />
         </form>
         <div className={styles.result}>{result}</div>
       </main>

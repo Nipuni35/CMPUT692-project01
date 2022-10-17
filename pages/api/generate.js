@@ -6,14 +6,23 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 export default async function (req, res) {
-const response = await openai.createCompletion({
-  model: "code-davinci-002",
-  prompt: "### Postgres SQL tables, with their properties:\n#\n# Employee(id, name, department_id)\n# Department(id, name, address)\n# Salary_Payments(id, employee_id, amount, date)\n#\n### A query to list the names of the departments which employed more than 10 employees in the last 3 months\nSELECT",
-  temperature: 0,
-  max_tokens: 150,
-  top_p: 1,
-  frequency_penalty: 0,
-  presence_penalty: 0,
-  stop: ["#", ";"],
-});
+    console.log("generate method started")
+    const response = await openai.createCompletion({
+            model: "code-davinci-002",
+            prompt: generatePrompt(req.body.query),
+            temperature: 0,
+            max_tokens: 150,
+            top_p: 1,
+            frequency_penalty: 0,
+            presence_penalty: 0,
+            stop: ["#", ";"],
+    });
+    const generatedSql = 'SELECT ' + response.data.choices[0].text;
+    return  res.status(200).json({ result: generatedSql });
+}
+
+function generatePrompt(query) {
+  const prompt = query + "\n SELECT";
+  console.log(prompt);
+  return prompt;
 }
