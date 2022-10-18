@@ -30,7 +30,7 @@ export default function Home() {
         <img src="/img.png" className={styles.icon} />
         <h3>Text to SQL translator</h3>
         <form onSubmit={onSubmit}>
-          <input
+          <textarea
             type="text"
             name="animal"
             placeholder="Enter table schema and question"

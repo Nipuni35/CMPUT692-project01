@@ -47,6 +47,15 @@
   border-radius: 4px;
   margin-bottom: 24px;
 }
+
+.main textarea{
+  padding: 12px 16px;
+  border: 1px solid #10a37f;
+  border-radius: 4px;
+  margin-bottom: 24px;
+  height: 200px;
+}
+
 .main ::placeholder {
   color: #8e8ea0;
   opacity: 1;
