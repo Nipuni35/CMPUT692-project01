@@ -10,7 +10,7 @@ export default async function (req, res) {
     const response = await openai.createCompletion({
             model: "code-davinci-002",
             prompt: generatePrompt(req.body.query),
-            temperature: 0,
+            temperature: 1,
             max_tokens: 150,
             top_p: 1,
             frequency_penalty: 0,
@@ -22,7 +22,7 @@ export default async function (req, res) {
 }
 
 function generatePrompt(query) {
-  const prompt = query + "\n SELECT";
+  const prompt = query;
   console.log(prompt);
   return prompt;
 }
