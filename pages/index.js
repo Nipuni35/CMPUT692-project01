@@ -5,6 +5,7 @@ import styles from "./index.module.css";
 export default function Home() {
   const [queryInput, setQueryInput] = useState("");
   const [result, setResult] = useState();
+  const [goldQuery, setGoldQuery] = useState();
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -21,6 +22,7 @@ export default function Home() {
 
   async function executeQuery(event) {
   console.log("executeQuery method started: " + result)
+    if (result !== undefined && result !== NULL) {
     event.preventDefault();
     const response = await fetch("/api/execute", {
       method: "POST",
@@ -29,6 +31,7 @@ export default function Home() {
       },
       body: JSON.stringify({ query: result }),
     });
+  }
   }
 
 
@@ -60,9 +63,20 @@ export default function Home() {
             onChange={(e) => setQueryInput(e.target.value)}
           />
           <input type="submit" value="Generate SQL Query" />
+              <input onClick={executeQuery} type="submit" value="Execute Query" />
+
+
         </form>
-        <button onClick="executeQuery(event)">Click me</button>
         <div className={styles.result}>{result}</div>
+      </main>
+      <main className={styles.main}>
+      <ul>
+      <li>
+      <h4>Is SQL Valid :</h4>
+      </li>
+      <li><h4>Execution Accuracy :</h4>
+      </li>
+      </ul>
       </main>
     </div>
   );
