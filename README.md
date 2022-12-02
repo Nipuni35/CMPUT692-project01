@@ -35,3 +35,7 @@ This is an example pet name generator app used in the OpenAI API [quickstart tut
    ```
 
 You should now be able to access the app at [http://localhost:3000](http://localhost:3000)! For the full context behind this example app, check out the [tutorial](https://beta.openai.com/docs/quickstart).
+
+
+<img width="952" alt="image" src="https://user-images.githubusercontent.com/56334497/196307675-5ef71077-d73c-48a0-af0c-b07767326310.png">
+
