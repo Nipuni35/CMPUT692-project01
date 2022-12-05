@@ -73,7 +73,7 @@ export default function Home() {
         </label>
         <label htmlFor="gptBabbage">
                    <input type="checkbox" id="gptBabbage" name="gptBabbage" value="yes"
-                   onChange={(e) => setGptCurie(e.target.value)}/>  GPT3 - text-babbage-002
+                   onChange={(e) => setGptCurie(e.target.value)}/>  GPT3 - text-curie-001
         </label>
           <textarea className={styles.text}
             type="text"
@@ -101,9 +101,9 @@ export default function Home() {
       <main className={styles.main} hidden={result == null}>
       <ul hidden={result == null}>
       <li>
-      <h4 hidden={result == null}>Is SQL Valid : {output.validity} {output.error}</h4>
+      <h4 hidden={result == null}>Is SQL Valid : {output?.validity} {output?.error}</h4>
       </li>
-      <li hidden={result == null}><h4>Execution Accuracy : {output.accuracy}</h4>
+      <li hidden={result == null}><h4>Execution Accuracy : {output?.accuracy ? output?.accuracy % : N/A }</h4>
       </li>
       </ul>
       </main>

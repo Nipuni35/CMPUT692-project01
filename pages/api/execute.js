@@ -36,7 +36,7 @@ export default async function (req, res1) {
         }if (res[3].includes('accuracy :')) {
         executionOutput.accuracy = res[3].replace('accuracy :', '')
         }
-        if (res[4].includes('error :')) {
+        if (res[4] != "error :" && res[4].includes('error :')) {
         executionOutput.error = '(' + res[4].replace('error :', '') + ')'
         }
         return res1.status(200).json({ result: executionOutput })
