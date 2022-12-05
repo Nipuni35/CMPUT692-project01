@@ -77,3 +77,12 @@
 .main .text {
     width: 600px;
 }
+
+.main .goldText{
+  padding: 12px 16px;
+  border: 1px solid #10a37f;
+  border-radius: 4px;
+  margin-bottom: 24px;
+  height: 100px;
+  width: 600px;
+}

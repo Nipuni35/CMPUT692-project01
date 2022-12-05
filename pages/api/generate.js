@@ -6,15 +6,15 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 export default async function (req, res) {
-    console.log("generate method started")
+    console.log("generate method started, with model", req.body.langModel)
     const response = await openai.createCompletion({
-            model: "code-davinci-002",
+            model: req.body.langModel,
             prompt: generatePrompt(req.body.query),
             temperature: 1,
-            max_tokens: 150,
+            max_tokens: 1000,
             top_p: 1,
             frequency_penalty: 0,
-            presence_penalty: 0,
+            presence_penalty: 1,
             stop: ["#", ";"],
     });
     const generatedSql = 'SELECT ' + response.data.choices[0].text;
