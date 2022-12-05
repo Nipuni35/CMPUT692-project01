@@ -85,10 +85,13 @@ export default function Home() {
           <input className={styles.submitBtn} type="submit" value="Generate SQL Query" />
         </form>
       </main>
-      <main className={styles.main} hidden={result == null}>
-              <div className={styles.result} hidden={result == null}>{result}</div>
-      </main>
-      <main className={styles.main} hidden={result == null}>
+      <textarea className={styles.predictedText}
+                                type="text"
+                                name="animal" readOnly
+                                value={result}
+                              />
+                                    <input className={styles.evaluateBtn} onClick={executeQuery} type="submit" value="Evaluate Query" hidden={result == null}/>
+
       <textarea className={styles.goldText}
                   type="text"
                   name="animal"
@@ -96,9 +99,7 @@ export default function Home() {
                   value={goldQueryInput}
                   onChange={(e) => setGoldQueryInput(e.target.value)}
                 />
-        <input onClick={executeQuery} type="submit" value="Evaluate Query" hidden={result == null}/>
-            </main>
-      <main className={styles.main} hidden={result == null}>
+      <main className={styles.boxResults} hidden={result == null}>
       <ul hidden={result == null}>
       <li>
       <h4 hidden={result == null}>Is SQL Valid : {output?.validity} {output?.error}</h4>
