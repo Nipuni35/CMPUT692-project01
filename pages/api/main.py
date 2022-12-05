@@ -10,15 +10,15 @@ from pyasn1.compat.octets import null
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 class Output:
-    def __init__(self, validity, predictedResult, goldResult, executionAccuracy, error):
+    def __init__(self, validity, goldResult, predictedResult, executionAccuracy, error):
         self.validity = validity
-        self.predictedResult = predictedResult
         self.goldResult = goldResult
+        self.predictedResult = predictedResult
         self.executionAccuracy = executionAccuracy
         self.error = error
 
     def __str__(self):
-        return f"{self.validity}({self.predictedResult})({self.goldResult})({self.executionAccuracy})({self.error})"
+        return f"{self.validity}({self.goldResult})({self.predictedResult})({self.executionAccuracy})({self.error})"
 
 
 # table order not considered
