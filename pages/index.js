@@ -103,7 +103,7 @@ export default function Home() {
       <li>
       <h4 hidden={result == null}>Is SQL Valid : {output?.validity} {output?.error}</h4>
       </li>
-      <li hidden={result == null}><h4>Execution Accuracy : {output?.accuracy ? output?.accuracy % : N/A }</h4>
+      <li hidden={result == null}><h4>Execution Accuracy : {output?.accuracy} %</h4>
       </li>
       </ul>
       </main>
