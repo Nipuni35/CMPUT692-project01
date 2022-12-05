@@ -61,7 +61,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <img src="/img.png" className={styles.icon} />
-        <h3>Text to SQL translator</h3>
+        <h3>Text to SQL Translator</h3>
         <form onSubmit={onSubmit}>
         <label htmlFor="codex">
            <input type="checkbox" id="codex" name="codex" value="yes"
@@ -87,6 +87,7 @@ export default function Home() {
       </main>
       <textarea className={styles.predictedText}
                                 type="text"
+                                placeholder="Predicted query"
                                 name="animal" readOnly
                                 value={result}
                               />

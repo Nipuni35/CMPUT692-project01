@@ -20,10 +20,11 @@ class Output:
     def __str__(self):
         return f"{self.validity}({self.predictedResult})({self.goldResult})({self.executionAccuracy})({self.error})"
 
+
 # table order not considered
 def executeSqlQuery(cur, goldQuery, predictedQuery):
     # gold query
-    output=Output("true", "", "", 0, "")
+    output = Output("true", "", "", 0, "")
     cur.execute(goldQuery)
     result1 = cur.fetchall()
     result2 = null
@@ -31,9 +32,9 @@ def executeSqlQuery(cur, goldQuery, predictedQuery):
         cur.execute(predictedQuery)
         result2 = cur.fetchall()
     except Exception as e:
-        output=Output("false", "", "", 0, e)
+        output = Output("false", "", "", 0, e)
     equivalentCount = 0
-    output=Output(output.validity, result1, result2, 0, output.error)
+    output = Output(output.validity, result1, result2, 0, output.error)
     total = len(result1)
     accuracy = 0
     if len(result1) >= len(result2):
@@ -47,12 +48,15 @@ def executeSqlQuery(cur, goldQuery, predictedQuery):
                 equivalentCount += 1
 
     accuracy = equivalentCount * 100 / total
-    output=Output(output.validity, result1, result2, str(accuracy), output.error)
+    output = Output(output.validity, result1, result2, str(accuracy), output.error)
     print("Validity :" + output.validity)
-    print("GoldRes :" + str(output.goldResult))
+    print("GoldRes :" + str(result1))
     print("PredictionRes :" + str(output.predictedResult))
     print("accuracy :" + output.executionAccuracy)
-    print("error :" + str(output.error))
+    try:
+        print("error :" + str(output.error))
+    except:
+        print("error :")
     # fetch all the data
 
 
