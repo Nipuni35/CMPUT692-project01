@@ -8,21 +8,21 @@ export default function Home() {
   const [result, setResult] = useState();
   const [output, setOutput] = useState();
   const [goldQuery, setGoldQuery] = useState();
-  const [codex, setCodexSelected] = useState();
-  const [gptDavinci, setGptDavinci] = useState();
-  const [gptCurie, setGptCurie] = useState();
+  const [codex, setCodexSelected] = useState(false);
+  const [gptDavinci, setGptDavinci] = useState(false);
+  const [gptCurie, setGptCurie] = useState(false);
 
   async function onSubmit(event) {
     event.preventDefault();
     console.log("codex, davinci, curie " + codex + " , " + gptDavinci + " , " + gptCurie)
-    let model = "code-davinci-002";
-    if (codex) {
+    let model;
+    if (codex == true) {
         model = "code-davinci-002"
     }
-    if (gptDavinci) {
+    else if (gptDavinci == true) {
         model = "text-davinci-003"
     }
-    if (gptCurie) {
+    else if (gptCurie == true) {
         model = "text-curie-001"
     }
     const response = await fetch("/api/generate", {
@@ -51,6 +51,15 @@ export default function Home() {
       setOutput(data.result);
       }
 
+const handleCheckedStateCodex = () => {
+    setCodexSelected(!codex);
+  };
+const handleCheckedStateGPTDavinci = () => {
+    setGptDavinci(!gptDavinci);
+  };
+const handleCheckedStateGptCurie = () => {
+    setGptCurie(!gptCurie);
+  };
 
   return (
     <div>
@@ -64,16 +73,16 @@ export default function Home() {
         <h3>Text to SQL Translator</h3>
         <form onSubmit={onSubmit}>
         <label htmlFor="codex">
-           <input type="checkbox" id="codex" name="codex" value="yes"
-           onChange={(e) => setCodexSelected(e.target.value)}/>  Codex Davinci
+           <input type="checkbox" id="codex" name="codex" value="yes" checked={codex}
+           onChange={handleCheckedStateCodex}/>  Codex Davinci
         </label>
         <label htmlFor="gptDavinci">
-                   <input type="checkbox" id="gptDavinci" name="gptDavinci" value="yes"
-                   onChange={(e) => setGptDavinci(e.target.value)}/>  GPT3 - text-davinci-003
+                   <input type="checkbox" id="gptDavinci" name="gptDavinci" value="yes"  checked={gptDavinci}
+                   onChange={handleCheckedStateGPTDavinci}/>  GPT3 - text-davinci-003
         </label>
         <label htmlFor="gptBabbage">
-                   <input type="checkbox" id="gptBabbage" name="gptBabbage" value="yes"
-                   onChange={(e) => setGptCurie(e.target.value)}/>  GPT3 - text-curie-001
+                   <input type="checkbox" id="gptBabbage" name="gptBabbage" value="yes" checked={gptCurie}
+                   onChange={handleCheckedStateGptCurie}/>  GPT3 - text-curie-001
         </label>
           <textarea className={styles.text}
             type="text"
