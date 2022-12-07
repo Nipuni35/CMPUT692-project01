@@ -10,7 +10,7 @@ export default async function (req, res) {
     const response = await openai.createCompletion({
             model: req.body.langModel,
             prompt: generatePrompt(req.body.query),
-            temperature: 0,
+            temperature: 0.5,
             max_tokens: 1000,
             top_p: 1,
             frequency_penalty: 0,
