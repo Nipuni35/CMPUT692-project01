@@ -1,6 +1,8 @@
-# OpenAI API Models evaluation - Node.js app
+# OpenAI API Quickstart - Node.js example app
 
-This is based on an example pet name generator app used in the OpenAI API [quickstart tutorial](https://beta.openai.com/docs/quickstart). It uses the [Next.js](https://nextjs.org/) framework with [React](https://reactjs.org/). Check out the tutorial or follow the instructions below to get set up.
+<h1> Setting Up the Environment and Integrating the OpenAI API <h1>
+
+This is an example pet name generator app used in the OpenAI API [quickstart tutorial](https://beta.openai.com/docs/quickstart). It uses the [Next.js](https://nextjs.org/) framework with [React](https://reactjs.org/). Check out the tutorial or follow the instructions below to get set up.
 
 ## Setup
 
@@ -37,5 +39,14 @@ This is based on an example pet name generator app used in the OpenAI API [quick
 You should now be able to access the app at [http://localhost:3000](http://localhost:3000)! For the full context behind this example app, check out the [tutorial](https://beta.openai.com/docs/quickstart).
 
 
-<img width="956" alt="node app" src="https://user-images.githubusercontent.com/56334497/208024315-e245e400-f789-49f7-bb58-2a9462ca6ae9.png">
+<img width="952" alt="image" src="https://user-images.githubusercontent.com/56334497/196307675-5ef71077-d73c-48a0-af0c-b07767326310.png">
 
+<h1> Finetuning <h1>
+1. The finetuning of the models can be done using the different parameters given in the [OpenAI docs](https://beta.openai.com/docs/guides/fine-tuning)
+2. Parameters for fine-tuing:
+a) Temperature
+b) Max Tokens
+c) Top-p
+d) Frequency Penalty
+5) Presence Penalty
+6) Stop Words
