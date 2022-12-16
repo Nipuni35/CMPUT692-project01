@@ -1,6 +1,6 @@
 # OpenAI API Quickstart - Node.js example app
 
-<h3> Setting Up the Environment and Integrating the OpenAI API <h3>
+<h3> Setting Up the Environment and Integrating the OpenAI API </h3>
 
 This is an example pet name generator app used in the OpenAI API [quickstart tutorial](https://beta.openai.com/docs/quickstart). It uses the [Next.js](https://nextjs.org/) framework with [React](https://reactjs.org/). Check out the tutorial or follow the instructions below to get set up.
 
@@ -41,7 +41,7 @@ You should now be able to access the app at [http://localhost:3000](http://local
 
 <img width="952" alt="image" src="https://user-images.githubusercontent.com/56334497/196307675-5ef71077-d73c-48a0-af0c-b07767326310.png">
 
-<h3> Finetuning <h3> <br>
+<h3> Finetuning </h3> <br>
 <p> 1. The finetuning of the models can be done using the different parameters given in the [OpenAI docs](https://beta.openai.com/docs/guides/fine-tuning) <br>
 2. Parameters for fine-tuing: <br>
 a) Temperature <br> 
